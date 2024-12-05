@@ -7,7 +7,7 @@ if(!isset($_SESSION['login_customer'])){
     header("location: customerlogin.php");
 }
 ?> 
-<title>Book Car </title>
+<title>Reservar Coche </title>
 <head>
     <script type="text/javascript" src="assets/ajs/angular.min.js"> </script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -31,8 +31,8 @@ if(!isset($_SESSION['login_customer'])){
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                     </button>
-                <a class="navbar-brand page-scroll" href="index.php">
-                   Car Rentals </a>
+                    <a class="navbar-brand page-scroll" href="index.php">
+                   Alquiler de Coches </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
 
@@ -41,26 +41,26 @@ if(!isset($_SESSION['login_customer'])){
             ?> 
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.php">Home</a>
+                <li>
+                        <a href="index.php">Inicio</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_client']; ?></a>
+                        <a href="#"><span class="glyphicon glyphicon-user"></span> Bienvenido <?php echo $_SESSION['login_client']; ?></a>
                     </li>
                     <li>
                     <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Control Panel <span class="caret"></span> </a>
+            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Panel de Control <span class="caret"></span> </a>
                 <ul class="dropdown-menu">
-              <li> <a href="entercar.php">Add Car</a></li>
-              <li> <a href="enterdriver.php"> Add Driver</a></li>
-              <li> <a href="clientview.php">View</a></li>
+              <li> <a href="entercar.php">Agregar Coche</a></li>
+              <li> <a href="enterdriver.php"> Agregar Conductor</a></li>
+              <li> <a href="clientview.php">Ver</a></li>
 
             </ul>
             </li>
           </ul>
                     </li>
                     <li>
-                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -70,23 +70,22 @@ if(!isset($_SESSION['login_customer'])){
                 else if (isset($_SESSION['login_customer'])){
             ?>
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.php">Home</a>
+            <li>
+                        <a href="index.php">Inicio</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo $_SESSION['login_customer']; ?></a>
+                        <a href="#"><span class="glyphicon glyphicon-user"></span> Bienvenido <?php echo $_SESSION['login_customer']; ?></a>
                     </li>
                     <ul class="nav navbar-nav">
-            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Garagge <span class="caret"></span> </a>
+            <li><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Garaje <span class="caret"></span> </a>
                 <ul class="dropdown-menu">
-              <li> <a href="prereturncar.php">Return Now</a></li>
-              <li> <a href="mybookings.php"> My Bookings</a></li>
+              <li> <a href="prereturncar.php">Devolver Ahora</a></li>
+              <li> <a href="mybookings.php"> Mis Reservas</a></li>
             </ul>
             </li>
           </ul>
                     <li>
-                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                        <a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -98,14 +97,14 @@ if(!isset($_SESSION['login_customer'])){
 
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.php">Home</a>
+                <li>
+                        <a href="index.php">Inicio</a>
                     </li>
                     <li>
-                        <a href="clientlogin.php">Employee</a>
+                        <a href="clientlogin.php">Empleado</a>
                     </li>
                     <li>
-                        <a href="customerlogin.php">Customer</a>
+                        <a href="customerlogin.php">Cliente</a>
                     </li>
                     <li>
                         <a href="#"> FAQ </a>
@@ -145,22 +144,19 @@ if(!isset($_SESSION['login_customer'])){
         ?>
 
           <!-- <div class="form-group"> -->
-              <h5> Selected Car:&nbsp;  <b><?php echo($car_name);?></b></h5>
-         <!-- </div> -->
+          <h5> Coche Seleccionado:&nbsp;  <b><?php echo($car_name);?></b></h5>
          
-          <!-- <div class="form-group"> -->
-            <h5> Number Plate:&nbsp;<b> <?php echo($car_nameplate);?></b></h5>
-          <!-- </div>      -->
-        <!-- <div class="form-group"> -->
+         <h5> Número de Placa:&nbsp;<b> <?php echo($car_nameplate);?></b></h5>
+       
         <?php $today = date("Y-m-d") ?>
-          <label><h5>Start Date:</h5></label>
+        <label><h5>Fecha de Inicio:</h5></label>
             <input type="date" name="rent_start_date" min="<?php echo($today);?>" required="">
             &nbsp; 
-          <label><h5>End Date:</h5></label>
+          <label><h5>Fecha de Fin:</h5></label>
           <input type="date" name="rent_end_date" min="<?php echo($today);?>" required="">
         <!-- </div>      -->
         
-        <h5> Choose your car type:  &nbsp;
+        <h5>Elige tu tipo de coche:  &nbsp;
             <input onclick="reveal()" type="radio" name="radio" value="ac" ng-model="myVar"> <b>With AC </b>&nbsp;
             <input onclick="reveal()" type="radio" name="radio" value="non_ac" ng-model="myVar"><b>With-Out AC </b>
                 
@@ -168,28 +164,23 @@ if(!isset($_SESSION['login_customer'])){
         <div ng-switch="myVar"> 
         <div ng-switch-default>
                     <!-- <div class="form-group"> -->
-                <h5>Fare: <h5>    
-                <!-- </div>    -->
+                    <h5>Tarifa: <h5>    
                      </div>
                     <div ng-switch-when="ac">
-                    <!-- <div class="form-group"> -->
-                <h5>Fare: <b><?php echo("Rs. " . $ac_price . "/km and Rs. " . $ac_price_per_day . "/day");?></b><h5>    
-                <!-- </div>    -->
+                <h5>Tarifa: <b><?php echo("Rs. " . $ac_price . "/km y Rs. " . $ac_price_per_day . "/día");?></b><h5>    
                      </div>
                      <div ng-switch-when="non_ac">
-                     <!-- <div class="form-group"> -->
-                <h5>Fare: <b><?php echo("Rs. " . $non_ac_price . "/km and Rs. " . $non_ac_price_per_day . "/day");?></b><h5>    
-                <!-- </div>   -->
+                <h5>Tarifa: <b><?php echo("Rs. " . $non_ac_price . "/km y Rs. " . $non_ac_price_per_day . "/día");?></b><h5>    
                      </div>
         </div>
 
-         <h5> Charge type:  &nbsp;
+         <h5> Tipo de Cargo:  &nbsp;
             <input onclick="reveal()" type="radio" name="radio1" value="km"><b> per KM</b> &nbsp;
             <input onclick="reveal()" type="radio" name="radio1" value="days"><b> per day</b>
 
             <br><br>
                 <!-- <form class="form-group"> -->
-                Select a driver: &nbsp;
+                Selecciona un conductor: &nbsp;
                 <select name="driver_id_from_dropdown" ng-model="myVar1">
                         <?php
                         $sql2 = "SELECT * FROM driver d WHERE d.driver_availability = 'yes' AND d.client_username IN (SELECT cc.client_username FROM clientcars cc WHERE cc.car_id = '$car_id')";
@@ -210,8 +201,8 @@ if(!isset($_SESSION['login_customer'])){
                     <?php }} 
                     else{
                         ?>
-                    Sorry! No Drivers are currently available, try again later...
-                        <?php
+                    Lo sentimos! No hay conductores disponibles actualmente, intenta de nuevo más tarde...
+                    <?php
                     }
                     ?>
                 </select>
@@ -233,9 +224,9 @@ if(!isset($_SESSION['login_customer'])){
                 ?>
 
                 <div ng-switch-when="<?php echo($driver_id); ?>">
-                    <h5>Driver Name:&nbsp; <b><?php echo($driver_name); ?></b></h5>
-                    <p>Gender:&nbsp; <b><?php echo($driver_gender); ?></b> </p>
-                    <p>Contact:&nbsp; <b><?php echo($driver_phone); ?></b> </p>
+                <h5>Nombre del Conductor:&nbsp; <b><?php echo($driver_name); ?></b></h5>
+                    <p>Género:&nbsp; <b><?php echo($driver_gender); ?></b> </p>
+                    <p>Contacto:&nbsp; <b><?php echo($driver_phone); ?></b> </p>
                 </div>
                 <?php }} ?>
                 </div>
@@ -257,7 +248,7 @@ if(!isset($_SESSION['login_customer'])){
             <hr>
             <div class="row">
                 <div class="col-sm-6">
-                    <h5>© <?php echo date("Y"); ?> Car Rentals</h5>
+                    <h5>© <?php echo date("Y"); ?> Se le cobrará un extra de </h5>
                 </div>
             </div>
         </div>

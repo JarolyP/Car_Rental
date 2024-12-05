@@ -8,7 +8,7 @@ $conn = Connect();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Rentals</title>
+    <title>Alquiler de Coches</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/P.png.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -28,16 +28,15 @@ $conn = Connect();
     $sql = "INSERT INTO feedback values ('" . $name . "','" . $e_mail ."','" . $message ."')";
     $success = $conn->query($sql);
 
-
     if(!$success) {
         echo $conn->error;
     }
     else { ?>
         <div class="container">
         <div class="jumbotron" style="text-align: center;">
-            Thank you for your feedback!    
+            ¡Gracias por su comentario!    
             <br><br>
-            <a href="index.php" class="btn btn-default"> Go Back </a>
+            <a href="index.php" class="btn btn-default"> Volver </a>
     </div>
      <?php
     }
@@ -48,7 +47,7 @@ $conn = Connect();
             <hr>
             <div class="row">
                 <div class="col-sm-6">
-                    <h5>© <?php echo date("Y"); ?> Car Rentals</h5>
+                    <h5>© <?php echo date("Y"); ?> Alquiler de Coches</h5>
                 </div>
             </div>
         </div>

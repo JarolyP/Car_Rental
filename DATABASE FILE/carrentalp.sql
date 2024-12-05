@@ -1,33 +1,29 @@
--- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 24, 2021 at 04:49 PM
--- Server version: 5.6.21
--- PHP Version: 7.4.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: 127.0.0.1    Database: carrentalp
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Database: `carrentalp`
---
-
--- --------------------------------------------------------
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `cars`
 --
 
-CREATE TABLE IF NOT EXISTS `cars` (
-`car_id` int(20) NOT NULL,
+DROP TABLE IF EXISTS `cars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cars` (
+  `car_id` int(20) NOT NULL AUTO_INCREMENT,
   `car_name` varchar(50) NOT NULL,
   `car_nameplate` varchar(50) NOT NULL,
   `car_img` varchar(50) DEFAULT 'NA',
@@ -35,166 +31,170 @@ CREATE TABLE IF NOT EXISTS `cars` (
   `non_ac_price` float NOT NULL,
   `ac_price_per_day` float NOT NULL,
   `non_ac_price_per_day` float NOT NULL,
-  `car_availability` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  `car_availability` varchar(10) NOT NULL,
+  PRIMARY KEY (`car_id`),
+  UNIQUE KEY `car_nameplate` (`car_nameplate`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `car_name`, `car_nameplate`, `car_img`, `ac_price`, `non_ac_price`, `ac_price_per_day`, `non_ac_price_per_day`, `car_availability`) VALUES
-(1, 'Audi A4', 'GA3KA6969', 'assets/img/cars/audi-a4.jpg', 36, 26, 5200, 2600, 'yes'),
-(2, 'Hyundai Creta', 'BA2CH2020', 'assets/img/cars/creta.jpg', 22, 12, 2900, 1400, 'yes'),
-(3, 'BMW 6-Series', 'BA10PA5555', 'assets/img/cars/bmw6.jpg', 39, 30, 6950, 5999, 'yes'),
-(4, 'Mercedes-Benz E-Class', 'BA10CH6009', 'assets/img/cars/mcec.jpg', 45, 30, 7200, 5200, 'yes'),
-(6, 'Ford EcoSport', 'GA4PA2587', 'assets/img/cars/ecosport.png', 21, 13, 3890, 2600, 'yes'),
-(7, 'Honda Amaze', 'PJ16YX8820', 'assets/img/cars/amaze.png', 14, 12, 2800, 2400, 'no'),
-(8, 'Land Rover Range Rover Sport', 'GA5KH9669', 'assets/img/cars/rangero.jpg', 36, 26, 6000, 4600, 'yes'),
-(9, 'MG Hector', 'GA6PA6666', 'assets/img/cars/mghector.jpg', 20, 12, 2900, 1400, 'yes'),
-(10, 'Honda CR-V', 'TN17MS1997', 'assets/img/cars/hondacr.jpg', 22, 15, 2850, 1400, 'yes'),
-(11, 'Mahindra XUV 500', 'KA12EX1883', 'assets/img/cars/Mahindra XUV.jpg', 15, 13, 3000, 2600, 'yes'),
-(12, 'Toyota Fortuner', 'GA08MX1997', 'assets/img/cars/Fortuner.png', 16, 14, 3200, 2800, 'yes'),
-(13, 'Hyundai Veloster', 'BA20PA5685', 'assets/img/cars/hyundai0.png', 23, 15, 4500, 3500, 'yes'),
-(14, 'Jaguar XF', 'GA8KH8866', 'assets/img/cars/jaguarxf.jpg', 39, 29, 6100, 4380, 'yes');
-
--- --------------------------------------------------------
+LOCK TABLES `cars` WRITE;
+/*!40000 ALTER TABLE `cars` DISABLE KEYS */;
+INSERT INTO `cars` VALUES (1,'Audi A4','GA3KA6969','assets/img/cars/audi-a4.jpg',36,26,5200,2600,'no'),(2,'Hyundai Creta','BA2CH2020','assets/img/cars/creta.jpg',22,12,2900,1400,'no'),(3,'BMW 6-Series','BA10PA5555','assets/img/cars/bmw6.jpg',39,30,6950,5999,'yes'),(4,'Mercedes-Benz E-Class','BA10CH6009','assets/img/cars/mcec.jpg',45,30,7200,5200,'yes'),(6,'Ford EcoSport','GA4PA2587','assets/img/cars/ecosport.png',21,13,3890,2600,'yes'),(7,'Honda Amaze','PJ16YX8820','assets/img/cars/amaze.png',14,12,2800,2400,'no'),(8,'Land Rover Range Rover Sport','GA5KH9669','assets/img/cars/rangero.jpg',36,26,6000,4600,'yes'),(9,'MG Hector','GA6PA6666','assets/img/cars/mghector.jpg',20,12,2900,1400,'yes'),(10,'Honda CR-V','TN17MS1997','assets/img/cars/hondacr.jpg',22,15,2850,1400,'yes'),(11,'Mahindra XUV 500','KA12EX1883','assets/img/cars/Mahindra XUV.jpg',15,13,3000,2600,'yes'),(12,'Toyota Fortuner','GA08MX1997','assets/img/cars/Fortuner.png',16,14,3200,2800,'yes'),(13,'Hyundai Veloster','BA20PA5685','assets/img/cars/hyundai0.png',23,15,4500,3500,'yes'),(14,'Jaguar XF','GA8KH8866','assets/img/cars/jaguarxf.jpg',39,29,6100,4380,'yes');
+/*!40000 ALTER TABLE `cars` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `clientcars`
 --
 
-CREATE TABLE IF NOT EXISTS `clientcars` (
+DROP TABLE IF EXISTS `clientcars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clientcars` (
   `car_id` int(20) NOT NULL,
-  `client_username` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `client_username` varchar(50) NOT NULL,
+  PRIMARY KEY (`car_id`),
+  KEY `client_username` (`client_username`),
+  CONSTRAINT `clientcars_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`),
+  CONSTRAINT `clientcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `clientcars`
 --
 
-INSERT INTO `clientcars` (`car_id`, `client_username`) VALUES
-(1, 'Pablo'),
-(3, 'Pedro'),
-(7, 'Juan'),
-(8, 'Augusto'),
-(9, 'Feliz'),
-(11, 'Andres'),
-(12, 'Harry'),
-(2, 'Maria'),
-(4, 'Juana'),
-(6, 'Paula'),
-(10, 'Jennifer'),
-(13, 'Noemi'),
-(14, 'Jenny');
-
--- --------------------------------------------------------
+LOCK TABLES `clientcars` WRITE;
+/*!40000 ALTER TABLE `clientcars` DISABLE KEYS */;
+INSERT INTO `clientcars` VALUES (11,'Andres'),(8,'Augusto'),(9,'Feliz'),(12,'Harry'),(10,'Jennifer'),(14,'Jenny'),(7,'Juan'),(4,'Juana'),(2,'Maria'),(13,'Noemi'),(1,'Pablo'),(6,'Paula'),(3,'Pedro');
+/*!40000 ALTER TABLE `clientcars` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `clients`
 --
 
-CREATE TABLE IF NOT EXISTS `clients` (
+DROP TABLE IF EXISTS `clients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clients` (
   `client_username` varchar(50) NOT NULL,
   `client_name` varchar(50) NOT NULL,
   `client_phone` varchar(15) NOT NULL,
   `client_email` varchar(25) NOT NULL,
   `client_address` varchar(50) CHARACTER SET utf8 COLLATE utf8_estonian_ci NOT NULL,
-  `client_password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `client_password` varchar(20) NOT NULL,
+  PRIMARY KEY (`client_username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`client_username`, `client_name`, `client_phone`, `client_email`, `client_address`, `client_password`) VALUES
-('harry', 'Harry Den', '9876543210', 'harryden@gmail.com', '2477  Harley Vincent Drive', 'password'),
-('jenny', 'Jeniffer Washington', '7850000069', 'washjeni@gmail.com', '4139  Mesa Drive', 'jenny'),
-('tom', 'Tommy Doee', '900696969', 'tom@gmail.com', '4645  Dawson Drive', 'password');
-
--- --------------------------------------------------------
+LOCK TABLES `clients` WRITE;
+/*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` VALUES ('andres','Andres Rojas','8096666666','andres@gmail.com','Calle 6 #678','andres123'),('augusto','Augusto Ramirez','8094444444','augusto@gmail.com','Calle 4 #456','augusto123'),('employee','Daniel Polanco','8095970626','employee@gmial.com','Calle Jardines Del Sur. Res. Yinnet 1','12345'),('feliz','Feliz Lopez','8095555555','feliz@gmail.com','Calle 5 #567','feliz123'),('harry','Harry Den','8097777777','harryden@gmail.com','Calle 7 #789','harry123'),('jennifer','Jennifer Lopez','8292222222','jennifer@gmail.com','Calle 11 #234','jennifer123'),('jenny','Jenny Vargas','8294444444','jenny@gmail.com','Calle 13 #456','jenny123'),('juan','Juan Perez','8093333333','juan@gmail.com','Calle 3 #345','juan123'),('juana','Juana Reyes','8099999999','juana@gmail.com','Calle 9 #901','juana123'),('maria','Maria Fernandez','8098888888','maria@gmail.com','Calle 8 #890','maria123'),('noemi','Noemi Torres','8293333333','noemi@gmail.com','Calle 12 #345','noemi123'),('pablo','Pablo Martinez','8091111111','pablo@gmail.com','Calle 1 #123','pablo123'),('paula','Paula Jimenez','8291111111','paula@gmail.com','Calle 10 #123','paula123'),('pedro','Pedro Gomez','8092222222','pedro@gmail.com','Calle 2 #234','pedro123');
+/*!40000 ALTER TABLE `clients` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `customers`
 --
 
-CREATE TABLE IF NOT EXISTS `customers` (
+DROP TABLE IF EXISTS `customers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `customers` (
   `customer_username` varchar(50) NOT NULL,
   `customer_name` varchar(50) NOT NULL,
   `customer_phone` varchar(15) NOT NULL,
   `customer_email` varchar(25) NOT NULL,
   `customer_address` varchar(50) NOT NULL,
-  `customer_password` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `customer_password` varchar(20) NOT NULL,
+  PRIMARY KEY (`customer_username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_username`, `customer_name`, `customer_phone`, `customer_email`, `customer_address`, `customer_password`) VALUES
-('antonio', 'Antonio M', '0785556580', 'antony@gmail.com', '2677  Burton Avenue', 'password'),
-('christine', 'Christine', '8544444444', 'chr@gmail.com', '3701  Fairway Drive', 'password'),
-('ethan', 'Ethan Hawk', '69741111110', 'thisisethan@gmail.com', '4554  Rowes Lane', 'password'),
-('james', 'James Washington', '0258786969', 'james@gmail.com', '2316  Mayo Street', 'password'),
-('lucas', 'Lucas Rhoades', '7003658500', 'lucas@gmail.com', '2737  Fowler Avenue', 'password');
-
--- --------------------------------------------------------
+LOCK TABLES `customers` WRITE;
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` VALUES ('customer','Juan Polanco','8492770147','customer@gmail.com','Autopista De San Isidro. El Rosal. Calle Jardines ','12345');
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `driver`
 --
 
-CREATE TABLE IF NOT EXISTS `driver` (
-`driver_id` int(20) NOT NULL,
+DROP TABLE IF EXISTS `driver`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `driver` (
+  `driver_id` int(20) NOT NULL AUTO_INCREMENT,
   `driver_name` varchar(50) NOT NULL,
   `dl_number` varchar(50) NOT NULL,
   `driver_phone` varchar(15) NOT NULL,
   `driver_address` varchar(50) NOT NULL,
   `driver_gender` varchar(10) NOT NULL,
   `client_username` varchar(50) NOT NULL,
-  `driver_availability` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `driver_availability` varchar(10) NOT NULL,
+  PRIMARY KEY (`driver_id`),
+  UNIQUE KEY `dl_number` (`dl_number`),
+  KEY `client_username` (`client_username`),
+  CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `driver`
 --
 
-INSERT INTO `driver` (`driver_id`, `driver_name`, `dl_number`, `driver_phone`, `driver_address`, `driver_gender`, `client_username`, `driver_availability`) VALUES
-(1, 'Bruno Den', '27840218658 ', '9547863157', '1782  Vineyard Drive', 'Male', 'harry', 'yes'),
-(2, 'Will Williams', '03191563155 ', '9147523684', '4354  Hillcrest Drive', 'Male', 'harry', 'yes'),
-(3, 'Steeve Rogers', '32346288078 ', '9147523682', '1506  Skinner Hollow Road', 'Male', 'harry', 'yes'),
-(4, 'Ivy', '04316015965 ', '9187563240', '4680  Wayside Lane', 'Female', 'jenny', 'no'),
-(5, 'Pamela C Benson', '68799466631 ', '7584960123', 'Urkey Pen Road', 'Female', 'jenny', 'yes'),
-(6, 'Billy Williams', '36740186040 ', '8421025476', '2898  Oxford Court', 'Male', 'tom', 'yes'),
-(7, 'Nicolas', '44919316260 ', '7541023695', 'Breezewood Court', 'Male', 'harry', 'yes'),
-(8, 'Stephen Strange', '94592817723', '5215557850', 'Fairview Street12', 'Male', 'jenny', 'yes');
-
--- --------------------------------------------------------
+LOCK TABLES `driver` WRITE;
+/*!40000 ALTER TABLE `driver` DISABLE KEYS */;
+/*!40000 ALTER TABLE `driver` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `feedback` (
+DROP TABLE IF EXISTS `feedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `feedback` (
   `name` varchar(20) NOT NULL,
   `e_mail` varchar(30) NOT NULL,
   `message` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`name`, `e_mail`, `message`) VALUES
-('Nikhil', 'nikhil@gmail.com', 'Hope this works.');
-
--- --------------------------------------------------------
+LOCK TABLES `feedback` WRITE;
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+INSERT INTO `feedback` VALUES ('Nikhil','nikhil@gmail.com','Hope this works.');
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `rentedcars`
 --
 
-CREATE TABLE IF NOT EXISTS `rentedcars` (
-`id` int(100) NOT NULL,
+DROP TABLE IF EXISTS `rentedcars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rentedcars` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
   `customer_username` varchar(50) NOT NULL,
   `car_id` int(20) NOT NULL,
   `driver_id` int(20) NOT NULL,
@@ -207,113 +207,33 @@ CREATE TABLE IF NOT EXISTS `rentedcars` (
   `distance` double DEFAULT NULL,
   `no_of_days` int(50) DEFAULT NULL,
   `total_amount` double DEFAULT NULL,
-  `return_status` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=574681260 DEFAULT CHARSET=utf8;
+  `return_status` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `customer_username` (`customer_username`),
+  KEY `car_id` (`car_id`),
+  KEY `driver_id` (`driver_id`),
+  CONSTRAINT `rentedcars_ibfk_1` FOREIGN KEY (`customer_username`) REFERENCES `customers` (`customer_username`),
+  CONSTRAINT `rentedcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`),
+  CONSTRAINT `rentedcars_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=574681263 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `rentedcars`
 --
 
-INSERT INTO `rentedcars` (`id`, `customer_username`, `car_id`, `driver_id`, `booking_date`, `rent_start_date`, `rent_end_date`, `car_return_date`, `fare`, `charge_type`, `distance`, `no_of_days`, `total_amount`, `return_status`) VALUES
-(574681245, 'ethan', 4, 2, '2018-07-18', '2018-07-01', '2018-07-02', '2018-07-18', 11, 'km', 244, 1, 5884, 'R'),
-(574681246, 'james', 6, 6, '2018-07-18', '2018-06-01', '2018-06-28', '2018-07-18', 15, 'km', 69, 27, 5035, 'R'),
-(574681247, 'antonio', 3, 1, '2018-07-18', '2018-07-19', '2018-07-22', '2018-07-20', 13, 'km', 421, 3, 5473, 'R'),
-(574681248, 'ethan', 1, 2, '2018-07-20', '2018-07-28', '2018-07-29', '2018-07-20', 10, 'km', 69, 1, 690, 'R'),
-(574681249, 'james', 1, 2, '2018-07-23', '2018-07-24', '2018-07-25', '2018-07-23', 10, 'km', 500, 1, 5000, 'R'),
-(574681250, 'lucas', 3, 2, '2018-07-23', '2018-07-23', '2018-07-24', '2018-07-23', 2600, 'days', NULL, 1, 2600, 'R'),
-(574681251, 'james', 10, 1, '2018-07-23', '2018-07-25', '2018-07-30', '2018-07-23', 10, 'km', 60, 2, 600, 'R'),
-(574681252, 'christine', 11, 2, '2018-07-23', '2018-07-23', '2018-07-23', '2018-07-23', 13, 'km', 200, 0, 2600, 'R'),
-(574681253, 'christine', 6, 7, '2018-07-23', '2018-07-23', '2018-08-03', '2018-07-23', 2600, 'days', NULL, 11, 28600, 'R'),
-(574681254, 'ethan', 12, 5, '2018-07-23', '2018-07-23', '2018-07-26', '2018-07-23', 3200, 'days', NULL, 3, 9600, 'R'),
-(574681255, 'christine', 8, 5, '2018-07-23', '2018-07-23', '2018-08-08', '2018-07-23', 2400, 'days', NULL, 16, 38400, 'R'),
-(574681257, 'james', 7, 4, '2018-08-11', '2018-08-13', '2018-08-17', NULL, 14, 'km', NULL, NULL, NULL, 'NR'),
-(574681258, 'lucas', 3, 1, '2021-03-24', '2021-03-24', '2021-03-25', '2021-03-24', 2600, 'days', NULL, 1, 2600, 'R'),
-(574681259, 'lucas', 14, 8, '2021-03-24', '2021-03-24', '2021-03-26', '2021-03-24', 6100, 'days', NULL, 2, 12200, 'R');
+LOCK TABLES `rentedcars` WRITE;
+/*!40000 ALTER TABLE `rentedcars` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rentedcars` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `cars`
---
-ALTER TABLE `cars`
- ADD PRIMARY KEY (`car_id`), ADD UNIQUE KEY `car_nameplate` (`car_nameplate`);
-
---
--- Indexes for table `clientcars`
---
-ALTER TABLE `clientcars`
- ADD PRIMARY KEY (`car_id`), ADD KEY `client_username` (`client_username`);
-
---
--- Indexes for table `clients`
---
-ALTER TABLE `clients`
- ADD PRIMARY KEY (`client_username`);
-
---
--- Indexes for table `customers`
---
-ALTER TABLE `customers`
- ADD PRIMARY KEY (`customer_username`);
-
---
--- Indexes for table `driver`
---
-ALTER TABLE `driver`
- ADD PRIMARY KEY (`driver_id`), ADD UNIQUE KEY `dl_number` (`dl_number`), ADD KEY `client_username` (`client_username`);
-
---
--- Indexes for table `rentedcars`
---
-ALTER TABLE `rentedcars`
- ADD PRIMARY KEY (`id`), ADD KEY `customer_username` (`customer_username`), ADD KEY `car_id` (`car_id`), ADD KEY `driver_id` (`driver_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `cars`
---
-ALTER TABLE `cars`
-MODIFY `car_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `driver`
---
-ALTER TABLE `driver`
-MODIFY `driver_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
---
--- AUTO_INCREMENT for table `rentedcars`
---
-ALTER TABLE `rentedcars`
-MODIFY `id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=574681260;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `clientcars`
---
-ALTER TABLE `clientcars`
-ADD CONSTRAINT `clientcars_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`),
-ADD CONSTRAINT `clientcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`);
-
---
--- Constraints for table `driver`
---
-ALTER TABLE `driver`
-ADD CONSTRAINT `driver_ibfk_1` FOREIGN KEY (`client_username`) REFERENCES `clients` (`client_username`);
-
---
--- Constraints for table `rentedcars`
---
-ALTER TABLE `rentedcars`
-ADD CONSTRAINT `rentedcars_ibfk_1` FOREIGN KEY (`customer_username`) REFERENCES `customers` (`customer_username`),
-ADD CONSTRAINT `rentedcars_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `cars` (`car_id`),
-ADD CONSTRAINT `rentedcars_ibfk_3` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`);
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-12-04 19:03:37
